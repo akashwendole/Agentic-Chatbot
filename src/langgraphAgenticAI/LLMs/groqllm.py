@@ -3,13 +3,13 @@ from langchain_groq import ChatGroq
 import streamlit as st
 
 class GroqLLM:
-    def __init__(self, user_controls_inputs):
-        self.user_control_inputs = user_controls_inputs
+    def __init__(self, user_control_input):
+        self.user_control_input = user_control_input
 
-    def get_llm_models(self):
+    def get_llm_model(self):
         try:
-            groq_api_key = self.user_control_inputs["GROQ_API_KEY"]
-            selected_groq_model = self.user_control_inputs["selected_groq_model"]
+            groq_api_key = self.user_control_input["GROQ_API_KEY"]
+            selected_groq_model = self.user_control_input["selected_groq_model"]
             if groq_api_key == '' and os.environ["GROQ_API_KEY"] == '':
                 st.error("Please enter the GROQ API key")
 
